@@ -1,7 +1,7 @@
 import numpy as np
 
-#data = np.loadtxt('day01.txt', dtype=int, unpack = True)
-data = np.array([[3,4,2,1,3,3],[4,3,5,3,9,3]])
+data = np.loadtxt('day01.txt', dtype=int, unpack = True)
+data1 = np.array([[3,4,2,1,3,3],[4,3,5,3,9,3]])
 
 
 def solve_part2(data):
