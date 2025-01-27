@@ -16,6 +16,12 @@ def solve_part1(data):
     col2 = np.sort(data[1])
     return sum(abs(col1-col2))
 
+def solve_part2(data):
+    """Solves part 2"""
+    pass
+
+
+
 if __name__ == "__main__":
     for path in sys.argv[1:]:
         print(f"\n{path}:")
