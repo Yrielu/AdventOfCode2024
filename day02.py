@@ -10,7 +10,7 @@ def parse(puzzle_input):
     return data
 
 def part1(data):
-    """Solve part 1."""
+    """Solve part 1: Count the number of safe reports."""
     n_unsafe = 0
     #Loop through report/lines
     for line in data:
