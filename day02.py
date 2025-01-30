@@ -1,6 +1,8 @@
 
 import pathlib
 import sys
+from itertools import count
+
 import numpy as np
 
 def parse(puzzle_input):
@@ -11,25 +13,26 @@ def parse(puzzle_input):
 
 def part1(data):
     """Solve part 1: Count the number of safe reports."""
-    n_unsafe = 0
-    #Loop through report/lines
-    for line in data:
+
+    def isSafe(line):
+        """Does checks in line and return True if passed all checks"""
+        # Loop through levels/num
         prev_num = line[0]
         diff_list = []
-        #Loop through levels/num
         for num in line:
             diff_list += [prev_num - num]
             prev_num = num
 
-        all_incr_decr = all(i == np.sign(diff_list[1:])[0] for i in np.sign(diff_list[1:]))
+        all_incr_decre = all(i == np.sign(diff_list[1:])[0] for i in np.sign(diff_list[1:]))
         # Check for steps bigger than 3
         if any([abs(diff) > 3 for diff in diff_list]):
-            n_unsafe += 1
-        #Check that levels are either all increasing or all decreasing
-        elif not all_incr_decr:
-            n_unsafe += 1
+            return False
+        # Check that levels are either all increasing or all decreasing
+        elif not all_incr_decre:
+            return False
+        return True
 
-    return len(data) - n_unsafe
+    return len([report for report in data if isSafe(report)])
 
 
 def part2(data):
